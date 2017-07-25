@@ -29,3 +29,17 @@ $ php app/console server:run
 pcntl extensionが必要らしいですね。  
 サポートページによるとserver:runでも書籍の内容を進められるので構わないそうです。  
 https://github.com/hidenorigoto/symfony2-book/issues/15
+
+## 実行
+1. ソースの取得  
+$ git clone https://github.com/pakuqi/classic-symfony.git
+
+2. composerのインストール  
+$ curl -sS https://getcomposer.org/installer | php  
+$ sudo mv composer.phar /usr/local/bin/composer  
+$ sudo chmod a+x /usr/local/bin/composer
+3. モジュールのインストール  
+$ composer install
+
+3. ビルトインサーバ実行  
+$ php app/console server:run  
