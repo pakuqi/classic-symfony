@@ -52,3 +52,8 @@ Failed to authenticate on SMTP server with username using 1 possible authenticat
 安全性の低いアプリへのアクセスを許可のリンクを押して画面遷移します。  
 安全性の低いアプリの許可: 有効  
 するとエラーが出なくなります。安全性が低くなるので、開発用のアカウントを別途作成した方が良いと思います。
+
+メール送信時に  
+Connection could not be established with host 127.0.0.1 [Connection refused #61]  
+と表示された場合は以下のコマンドを実行してsmtpサーバを起動して下さい。  
+$ sudo postfix start
