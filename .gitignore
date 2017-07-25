@@ -10,3 +10,6 @@
 /bin/
 /composer.phar
 .DS_Store
+.buildpath
+.project
+.settings
