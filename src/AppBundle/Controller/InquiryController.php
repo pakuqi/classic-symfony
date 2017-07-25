@@ -30,6 +30,12 @@ class InquiryController extends Controller
       $form->handleRequest($request);
       if ($form->isValid())
       {
+          $data = $form->getData();
+          $message = \Swift_Message::newInstance()->setSubject('Webサイトからのお知らせ')
+                                                  ->setFrom('webmaster@exmaple.com')
+                                                  ->setTo('admin@example.com')
+                                                  ->setBody($this->render('mail/inquiry.txt.twig', ['data' => $data]));
+          $this->get('mailer')->send($message);
           return $this->redirect($this->generateUrl('app_inquiry_complete'));
       }
       else

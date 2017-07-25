@@ -43,3 +43,12 @@ $ composer install
 
 3. ビルトインサーバ実行  
 $ php app/console server:run  
+
+# 4.3 メール通知機能の作成に関して
+メール送信すると  
+Failed to authenticate on SMTP server with username using 1 possible authenticators  
+と表示されてエラーになります。Gmailのセキュリティで弾かれているようです。  
+ブロックされたログインについてご確認くださいというメールがGoogleから送られてきます。  
+安全性の低いアプリへのアクセスを許可のリンクを押して画面遷移します。  
+安全性の低いアプリの許可: 有効  
+するとエラーが出なくなります。安全性が低くなるので、開発用のアカウントを別途作成した方が良いと思います。
