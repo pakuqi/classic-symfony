@@ -13,6 +13,12 @@ use Symfony\Component\Validator\Constraints As Assert;
  */
 class Inquiry
 {
+    public function __construct()
+    {
+        $this->processStatus = 0;
+        $this->processMemo = '';
+    }
+    
     /**
      * @var integer
      *
@@ -66,7 +72,20 @@ class Inquiry
      */
     private $content;
 
+    /**
+     * @var string
+     * 
+     * @ORM\Column(name="process_status", type="string", length=20)
+     * @Assert\NotBlank(groups={"admin"})
+     */
+    private $processStatus;
 
+    /**
+     * @ORM\Column(name="process_memo", type="text")
+     * @Assert\NotBlank(groups={"admin"})
+     */
+    private $processMemo;
+    
     /**
      * Get id
      *
@@ -190,5 +209,51 @@ class Inquiry
     public function getContent()
     {
         return $this->content;
+    }
+
+    /**
+     * Set processStatus
+     *
+     * @param string $processStatus
+     * @return Inquiry
+     */
+    public function setProcessStatus($processStatus)
+    {
+        $this->processStatus = $processStatus;
+
+        return $this;
+    }
+
+    /**
+     * Get processStatus
+     *
+     * @return string 
+     */
+    public function getProcessStatus()
+    {
+        return $this->processStatus;
+    }
+
+    /**
+     * Set processMemo
+     *
+     * @param string $processMemo
+     * @return Inquiry
+     */
+    public function setProcessMemo($processMemo)
+    {
+        $this->processMemo = $processMemo;
+
+        return $this;
+    }
+
+    /**
+     * Get processMemo
+     *
+     * @return string 
+     */
+    public function getProcessMemo()
+    {
+        return $this->processMemo;
     }
 }
